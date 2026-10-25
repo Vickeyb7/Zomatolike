@@ -630,15 +630,17 @@ export const VERCEL_GITHUB_PLAYBOOK = {
     },
     {
       step: '03',
-      title: 'Import Repository to Vercel',
+      title: 'Import Repository to Vercel (Auto-Detects Vite)',
       commands: [
-        '# Install Vercel CLI (optional) or use vercel.com dashboard:',
+        '# .npmrc (already configured in root): legacy-peer-deps=true',
+        '# vercel.json (already configured in root): rewrites to /index.html for SPA routes',
+        '# Deploy via Vercel CLI or dashboard:',
         'npm i -g vercel',
         'vercel login',
         'vercel link',
         'vercel --prod',
       ],
-      notes: 'Framework Preset: Vite (or Next.js if transitioning server routes). Build Command: npm run build, Output Directory: dist.',
+      notes: 'The included .npmrc prevents npm peer dependency conflicts (ERESOLVE). Framework Preset: Vite, Build Command: npm run build, Output Directory: dist.',
     },
     {
       step: '04',
