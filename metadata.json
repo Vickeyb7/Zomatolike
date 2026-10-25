@@ -1,0 +1,6 @@
+{
+  "name": "Zomato Lite & Menu Architecture",
+  "description": "Production-grade Zomato Lite food discovery, restaurant menu management, review streaming, and full PostgreSQL schema specification.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
