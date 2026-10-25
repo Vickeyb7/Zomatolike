@@ -59,19 +59,6 @@ export const RestaurantView: React.FC<RestaurantViewProps> = ({
 
   return (
     <div className="min-h-screen bg-[#111217] text-zinc-100 pb-28">
-      {/* Simulation of browser / vercel breadcrumb header as in screenshot */}
-      <div className="bg-[#0b0c10] border-b border-zinc-800/60 px-4 py-2 text-xs text-zinc-400 font-mono flex items-center justify-between">
-        <div className="flex items-center gap-2 truncate">
-          <span className="text-zinc-600">route:</span>
-          <span className="text-rose-400">zomato-lite-black.vercel.app/restaurant/{restaurant.id}</span>
-        </div>
-        <div className="hidden sm:flex items-center gap-4 text-[11px] text-zinc-500">
-          <span>PostgreSQL Active</span>
-          <span>·</span>
-          <span>Latency: 24ms</span>
-        </div>
-      </div>
-
       <main className="max-w-2xl mx-auto px-4 pt-6">
         {/* Main Card with Red Hero Pattern and Restaurant Metadata */}
         <section className="bg-[#17181f] rounded-2xl border border-zinc-800/90 overflow-hidden shadow-xl">

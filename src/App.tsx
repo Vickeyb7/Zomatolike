@@ -306,11 +306,45 @@ export default function App() {
             onSetDefaultAddress={handleSetDefaultAddress}
             onReorder={handleReorder}
             onUpdateDietaryPreferences={handleUpdateDietaryPreferences}
+            onNavigateTab={setActiveTab}
           />
         )}
 
         {activeTab === 'schema' && <SchemaWorkbench />}
       </div>
+
+      {/* Quiet Consumer Footer with subtle discrete developer links */}
+      <footer className="border-t border-zinc-800/80 bg-[#0c0d12] py-8 px-4 text-xs text-zinc-500">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-white tracking-tight">zomato<span className="text-rose-500 font-extrabold">-lite</span></span>
+            <span>&copy; {new Date().getFullYear()} Zomato Lite. All rights reserved.</span>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <button
+              onClick={() => setActiveTab('explore')}
+              className="hover:text-zinc-300 transition-colors"
+            >
+              Discover
+            </button>
+            <button
+              onClick={() => setActiveTab('profile')}
+              className="hover:text-zinc-300 transition-colors"
+            >
+              My Account
+            </button>
+            <span className="text-zinc-700">|</span>
+            <button
+              onClick={() => setActiveTab('schema')}
+              className="text-zinc-600 hover:text-cyan-400 transition-colors"
+              title="Internal Developer Specifications"
+            >
+              Architecture &amp; Schema Specs
+            </button>
+          </div>
+        </div>
+      </footer>
 
       {/* Interactive Write Review Modal */}
       <WriteReviewModal

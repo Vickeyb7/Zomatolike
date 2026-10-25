@@ -21,6 +21,7 @@ interface UserProfileProps {
   onSetDefaultAddress: (addressId: string) => void;
   onReorder: (order: PastOrder) => void;
   onUpdateDietaryPreferences: (prefs: string[]) => void;
+  onNavigateTab?: (tab: 'restaurant' | 'explore' | 'menu-admin' | 'profile' | 'schema') => void;
 }
 
 export const UserProfile: React.FC<UserProfileProps> = ({
@@ -30,6 +31,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({
   onSetDefaultAddress,
   onReorder,
   onUpdateDietaryPreferences,
+  onNavigateTab,
 }) => {
   const [activeTab, setActiveTab] = useState<'profile' | 'addresses' | 'orders'>('profile');
   const [isAddingAddress, setIsAddingAddress] = useState(false);
@@ -201,6 +203,33 @@ export const UserProfile: React.FC<UserProfileProps> = ({
               </div>
             </div>
           </div>
+
+          {onNavigateTab && (
+            <div className="bg-[#17181f] border border-zinc-800 rounded-2xl p-6">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-300 mb-1">
+                Developer &amp; Database Workbench
+              </h2>
+              <p className="text-xs text-zinc-400 mb-4">
+                Access the entity-relationship diagrams, PostgreSQL DDL, and restaurant catalog management without customer-facing exposure.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={() => onNavigateTab('schema')}
+                  className="px-4 py-2 text-xs font-semibold text-white bg-cyan-600 hover:bg-cyan-500 rounded-xl transition-colors shadow-md flex items-center gap-1.5"
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  Open PM Schema &amp; ERD
+                </button>
+                <button
+                  onClick={() => onNavigateTab('menu-admin')}
+                  className="px-4 py-2 text-xs font-semibold text-zinc-200 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-xl transition-colors flex items-center gap-1.5"
+                >
+                  <ShoppingBag className="w-4 h-4 text-emerald-400" />
+                  Open Restaurant Menu Hub
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
